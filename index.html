@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8RKDFTHRWM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8RKDFTHRWM");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>ThirdSpace Architecture Studio — Architecture, Interiors & Urbanism</title>
+    <meta
+      name="description"
+      content="ThirdSpace Architecture Studio explores the interstices between Architecture, Interiors and Urbanism. Founded in 2002, with studios in Belagavi and Pune, India."
+    />
+    <meta
+      name="keywords"
+      content="ThirdSpace, ThirdSpace Architecture Studio, architecture, interiors, urbanism, Belagavi, Pune, Belgaum, educational architecture, India architecture"
+    />
+    <meta name="author" content="ThirdSpace Architecture Studio" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph — set og:url and og:image to your production domain when live -->
+    <meta
+      property="og:title"
+      content="ThirdSpace Architecture Studio — Architecture, Interiors & Urbanism"
+    />
+    <meta
+      property="og:description"
+      content="Exploring the interstices between Architecture, Interiors and Urbanism. Founded 2002. Studios in Belagavi and Pune."
+    />
+    <meta property="og:url" content="https://aesthetikodesigns.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://aesthetikodesigns.com/slide1.webp" />
+    <meta property="og:site_name" content="ThirdSpace Architecture Studio" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ThirdSpace Architecture Studio — Architecture, Interiors & Urbanism"
+    />
+    <meta
+      name="twitter:description"
+      content="Exploring the interstices between Architecture, Interiors and Urbanism. Founded 2002. Belagavi & Pune."
+    />
+    <meta
+      name="twitter:image"
+      content="https://aesthetikodesigns.com/slide1.webp"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Check if we need to redirect to a specific path
+      (function () {
+        const redirect = sessionStorage.getItem("redirect");
+        if (redirect) {
+          sessionStorage.removeItem("redirect");
+          if (redirect !== location.pathname) {
+            history.replaceState(null, null, redirect);
+          }
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ArchitecturalService",
+        "@id": "https://aesthetikodesigns.com/#organization",
+        "name": "ThirdSpace Architecture Studio",
+        "alternateName": "ThirdSpace",
+        "url": "https://aesthetikodesigns.com/",
+        "description": "Architecture studio exploring the interstices between Architecture, Interiors and Urbanism. Founded in 2002, operating from Belagavi and Pune with work spanning educational, institutional, and urban projects across India.",
+        "slogan": "Exploring the interstices between Architecture, Interiors and Urbanism",
+        "foundingDate": "2002",
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "knowsAbout": [
+          "Architecture",
+          "Interior architecture",
+          "Urbanism",
+          "Educational architecture",
+          "Campus planning",
+          "Institutional design"
+        ],
+        "serviceType": [
+          "Architecture",
+          "Interior design",
+          "Urban design",
+          "Master planning"
+        ]
+      }
+    </script>
+    <!-- Google Model Viewer (if used on the site) -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"
+    ></script>
+    <!-- Suppress Three.js multiple instance warning -->
+    <script>
+      const originalWarn = console.warn;
+      console.warn = function (...args) {
+        if (
+          args[0] &&
+          typeof args[0] === "string" &&
+          args[0].includes("Multiple instances of Three.js")
+        ) {
+          return;
+        }
+        originalWarn.apply(console, args);
+      };
+    </script>
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
