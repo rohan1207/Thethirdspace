@@ -1,281 +1,310 @@
-import { FEATURED_PROJECT_IMAGES, HERO_IMAGES } from "./heroImages";
+import { buildProjectAssets } from "./projectAssets";
 
-function galleryFrom(start, count = 5) {
-  return Array.from({ length: count }, (_, i) => HERO_IMAGES[(start + i) % HERO_IMAGES.length]);
-}
+const pool = buildProjectAssets("pavilion-pool");
+const formist = buildProjectAssets("formist-treehouse");
+const hover = buildProjectAssets("hover-space");
+const solids = buildProjectAssets("solid-semi-void");
+const figured = buildProjectAssets("figured-ground");
+const kle = buildProjectAssets("kle-centenary");
+const stacked = buildProjectAssets("stacked-student");
+const skylights = buildProjectAssets("skylights");
 
 export const WORK_PROJECTS = [
   {
-    id: "technology-institute",
-    category: "Education",
-    name: "Technology Institute Campus",
+    id: "pool-pavilion",
+    category: "Residential",
+    name: "The Pool Pavilion",
     location: "Belagavi, Karnataka",
-    year: "2022",
-    image: FEATURED_PROJECT_IMAGES[0],
+    year: "2024",
+    ...pool,
     description:
-      "A technology institute shaped by courtyards, shaded walkways, and flexible learning spaces — rooted in the climate and culture of North Karnataka.",
-    overview:
-      "The Technology Institute Campus reimagines technical education as a sequence of shaded outdoor rooms. Classrooms open onto colonnaded walkways, laboratories face inward to quiet courtyards, and the commons building anchors the social life of the campus at its geographic heart.",
-    challenge:
-      "The brief called for a high-density academic precinct on a tight, sloping site — without sacrificing daylight, cross-ventilation, or the informal gathering spaces that define campus culture in this region.",
-    approach:
-      "We organised the masterplan as a chain of linear blocks stepping with the topography. Deep overhangs, perforated screens, and locally sourced stone create a durable, low-maintenance envelope tuned to Belagavi's semi-arid climate.",
-    gallery: galleryFrom(0, 6),
-    client: "Private Education Trust",
-    area: "18,400 sq.m",
-    status: "Built",
-    role: "Architecture & Masterplanning",
-    team: "ThirdSpace Architecture Studio",
-    awards: "Shortlisted — Institutional Design Award, 2023",
-    details: [
-      { label: "Typology", value: "Educational campus" },
-      { label: "Focus", value: "Institute, labs, commons" },
-      { label: "Status", value: "Built" },
-      { label: "Area", value: "18,400 sq.m" },
-      { label: "Client", value: "Private Education Trust" },
+      "A semi-open swimming pool pavilion with terracotta screens and a glass canopy — an experiential extension of the home and a passive cooling device.",
+    concept:
+      "Set within the dense fabric of an old urban neighborhood, this residence negotiates the paradox of a maximal lifestyle within a framework of minimal aesthetic sensibilities. The programmatic brief was exacting: parking for seven cars, expansive service zones, four bedrooms, a home theatre, and a swimming pool, all on a constrained site where every square metre carried weight. The home is elevated on a high plinth, allowing the semi-ground floor to discreetly house service functions. The eastern setback was reimagined as a swimming pool — not a residual margin, but a pavilion-like extension bound by terracotta screens on three sides and capped with a glass canopy, functioning simultaneously as performative landscape and passive cooling device.",
+    designHighlights: [
+      "The eastern setback is reinterpreted as a semi-open swimming pool pavilion with terracotta screens and a glass canopy, functioning both as an experiential extension of the home and a passive cooling device.",
+      "Public spaces are choreographed between the transparent pool enclosure and the solid private block, with sectional openings enabling layered views and soft, reflected light across interiors.",
+      "The plan strictly follows Vastu principles while fostering spatial interlock, balancing privacy with openness. A restrained palette of timber and neutrals underscores the client's spiritual and aesthetic leanings.",
     ],
-  },
-  {
-    id: "student-hostel",
-    category: "Education",
-    name: "Student Hostel Block",
-    location: "Pune, Maharashtra",
-    year: "2021",
-    image: FEATURED_PROJECT_IMAGES[1],
-    description:
-      "Residential quarters designed as a layered community — shared terraces, quiet study nooks, and durable materials for high-intensity student life.",
-    overview:
-      "This hostel block treats student housing as a social infrastructure project. Shared terraces, double-height lounges, and carefully calibrated room clusters encourage community without compromising privacy or acoustic comfort.",
-    challenge:
-      "Accommodate 480 students on a constrained urban plot while meeting strict fire, ventilation, and daylight codes — and deliver a building that feels humane rather than institutional.",
-    approach:
-      "A central atrium brings light deep into the plan. Room modules repeat along external corridors with alternating bay windows, creating rhythm along the façade and natural surveillance across shared floors.",
-    gallery: galleryFrom(2, 5),
-    client: "University Estates Department",
-    area: "9,200 sq.m",
+    client: "Private Client",
+    area: "600 sq.m",
     status: "Built",
     role: "Architecture & Interiors",
-    team: "ThirdSpace Architecture Studio",
-    awards: null,
+    team: "Praveen Bavadekar, Madhuri Gulbani",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
+    structural: "D L Kulkarni & Associates, Belagavi",
     details: [
-      { label: "Typology", value: "Student housing" },
-      { label: "Focus", value: "Hostel, dining, recreation" },
-      { label: "Status", value: "Built" },
-      { label: "Area", value: "9,200 sq.m" },
-      { label: "Client", value: "University Estates" },
+      { label: "Typology", value: "Residential" },
+      { label: "Location", value: "Belagavi, Karnataka" },
+      { label: "Completion", value: "2024" },
+      { label: "Area", value: "600 sq.m" },
+      { label: "Principals", value: "Praveen Bavadekar & Namrata Betigiri" },
     ],
   },
   {
-    id: "school-campus",
-    category: "Education",
-    name: "School Campus Masterplan",
-    location: "Karnataka, India",
-    year: "2020",
-    image: FEATURED_PROJECT_IMAGES[2],
-    description:
-      "A school campus organised around open courts and linear classroom blocks — balancing shade, play, and the everyday rhythms of learning.",
-    overview:
-      "The school campus masterplan frames learning as movement between courts, corridors, and landscape. Younger grades occupy protected inner courts; senior blocks open toward sports fields and the tree line at the site's edge.",
-    challenge:
-      "Design for 1,200 students across K-12 on agricultural land at the urban periphery — integrating stormwater management, future expansion, and safe pedestrian circulation from day one.",
-    approach:
-      "A primary east-west spine connects arrival, administration, and assembly. Classroom wings plug into this spine as modular arms, each wrapping a play court sized to its age group.",
-    gallery: galleryFrom(4, 5),
-    client: "Independent School Foundation",
-    area: "24,000 sq.m",
-    status: "Built",
-    role: "Masterplan & Architecture",
-    team: "ThirdSpace Architecture Studio",
-    awards: "Published in Architecture+Design, 2021",
-    details: [
-      { label: "Typology", value: "School" },
-      { label: "Focus", value: "Classrooms, play, admin" },
-      { label: "Status", value: "Built" },
-      { label: "Area", value: "24,000 sq.m" },
-      { label: "Client", value: "School Foundation" },
-    ],
-  },
-  {
-    id: "institutional-hq",
+    id: "formist-treehouse",
     category: "Architecture",
-    name: "Institutional Headquarters",
-    location: "Belgaum, Karnataka",
-    year: "2019",
-    image: FEATURED_PROJECT_IMAGES[3],
+    name: "The Formist Treehouse",
+    location: "Bengaluru, Karnataka",
+    year: "2022",
+    ...formist,
     description:
-      "A headquarters building that mediates between public forecourt and private work zones — experimental in form, precise in its response to context.",
-    overview:
-      "The headquarters building presents a civic face to the street while sheltering focused work zones behind a layered façade. A public forecourt, exhibition gallery, and meeting rooms occupy the lower levels; executive offices and research studios rise above in a quieter, top-lit volume.",
-    challenge:
-      "Express the institution's experimental identity without sacrificing workplace performance — balancing bold form-making with the practical demands of daily office life in a hot, dry climate.",
-    approach:
-      "We folded the plan around a shaded atrium and wrapped it in a double-skin façade of concrete and operable timber screens. The result is a building that reads as a landmark from the street and feels calm, filtered, and precise inside.",
-    gallery: galleryFrom(6, 6),
-    client: "Research & Development Institute",
-    area: "6,800 sq.m",
+      "A multi-family housing block that reinterprets the urban street as a social spine within a compact apartment building of 56 homes.",
+    concept:
+      "The peri-urban fabric of Bengaluru is rapidly transforming, marked by an unrelenting proliferation of housing blocks that range from modest multi-storey residences to expansive gated communities. While large-scale developments often generate a sense of community through their sheer magnitude, smaller stand-alone buildings struggle to foster notions of neighbourhood and shared identity. This project explores how the quintessentially urban phenomenon of the street, with its layered social life, can be reinterpreted within a compact apartment building of just 56 homes.",
+    designHighlights: [
+      "The Club is reconceptualised as a treehouse and the vertical core of community life, transforming circulation spaces into dynamic social arenas.",
+      "Balconies, peripheries, and the terrace are integrated with kitchen gardens, creating productive green edges that enhance biodiversity, temper climate, and enrich residents' daily living.",
+      "By embedding layered public spaces on each floor, the design reinterprets the urban street as a social spine within a compact apartment block, fostering neighbourhood interaction in a vertical format.",
+    ],
+    client: "The Formist Group",
+    area: "10,000 sq.m",
     status: "Built",
     role: "Architecture",
-    team: "ThirdSpace Architecture Studio",
-    awards: "Award of Merit — Institutional Architecture, 2020",
+    team: "Praveen Bavadekar, Namrata Betigiri, Shivraj Kutre, Maru Bidrewadi",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
+    structural: "Ambarish and Associates, Bengaluru",
+    landscape: "Sudhir Choughule, EcoInscape Bengaluru",
     details: [
-      { label: "Typology", value: "Institutional" },
-      { label: "Focus", value: "Office, public interface" },
-      { label: "Status", value: "Built" },
-      { label: "Area", value: "6,800 sq.m" },
-      { label: "Client", value: "R&D Institute" },
+      { label: "Typology", value: "Multi-family housing" },
+      { label: "Location", value: "Bengaluru, Karnataka" },
+      { label: "Completion", value: "2022" },
+      { label: "Area", value: "10,000 sq.m" },
+      { label: "Client", value: "The Formist Group" },
     ],
   },
   {
-    id: "urban-intervention",
-    category: "Urbanism",
-    name: "Urban Intervention Study",
-    location: "Pune, Maharashtra",
-    year: "2018",
-    image: FEATURED_PROJECT_IMAGES[4],
+    id: "hover-space",
+    category: "Architecture",
+    name: "Hover Space",
+    location: "Belagavi, Karnataka",
+    year: "2019",
+    ...hover,
     description:
-      "A research-led urban proposal engaging public realm, circulation, and the layered histories of an Indian city centre.",
-    overview:
-      "This urban intervention study examines a congested city-centre junction as a civic room rather than a traffic problem. The proposal reclaims underused setbacks, aligns pedestrian desire lines, and introduces shaded micro-plazas at the scale of everyday rituals.",
-    challenge:
-      "Reconcile competing claims on a dense intersection — vehicular throughput, informal vending, heritage structures, and the absence of continuous footpaths — within a framework actionable for municipal stakeholders.",
-    approach:
-      "Through mapping, stakeholder workshops, and sectional studies, we identified three catalytic moves: a raised pedestrian deck, a continuous shade structure along the retail edge, and a phased street-furniture kit-of-parts deployable by the city.",
-    gallery: galleryFrom(7, 5),
-    client: "Municipal Urban Development Cell",
-    area: "2.1 hectare study area",
-    status: "Published / Unbuilt",
-    role: "Urban Research & Design",
-    team: "ThirdSpace Architecture Studio",
-    awards: "Exhibited — Urban Design Biennale, 2019",
-    details: [
-      { label: "Typology", value: "Urban research" },
-      { label: "Focus", value: "Public realm, mobility" },
-      { label: "Status", value: "Published" },
-      { label: "Area", value: "2.1 hectare" },
-      { label: "Client", value: "Municipal UD Cell" },
+      "A floating corporate office addition above a fifty-year-old institutional building — preserving memory while creating a new civic presence along a major city road.",
+    concept:
+      "Can an existing structure be expanded while preserving its integrity and identity? When a well-established educational charity institution required additional space for their 50-year-old corporate office, the existing building — though unremarkable in appearance — held significance within the collective memory of the institution. The challenge was to intervene without disrupting daily operations or harming interiors through intrusive structural modifications, while responding to the road, the century-old campus, and the adjacent sports ground.",
+    designHighlights: [
+      "The new structure floats above the old building as a hovering space supported by only eight carefully positioned cylindrical columns, creating an uninterrupted interior of approximately 1,000 sq.m.",
+      "A continuous verandah wraps the column-free office, drawing from colonial architecture as both social space and climatic buffer against harsh rain and sun.",
+      "An L-shaped plan creates a triple-height entry portal from the road to the campus, framing heritage structures along a central tree-lined avenue.",
+      "A glass elevator and interstitial terrace bridge old and new, making the ritual of vertical movement part of the architectural experience.",
     ],
-  },
-  {
-    id: "interior-residence",
-    category: "Interiors",
-    name: "Residential Interior Study",
-    location: "Pune, Maharashtra",
-    year: "2017",
-    image: HERO_IMAGES[5],
-    description:
-      "An interior narrative of light, material, and proportion — crafting intimate domestic spaces with architectural rigour.",
-    overview:
-      "This residential interior study transforms a compact urban apartment into a sequence of calm, light-filled rooms. Custom joinery, lime-washed walls, and hand-selected stone create a palette that ages gracefully and feels rooted in the Indian craft tradition.",
-    challenge:
-      "Deliver generous storage, acoustic privacy, and visual warmth within a 180 sq.m shell already constrained by structure and services — without any structural intervention.",
-    approach:
-      "We treated the plan as a series of thickened walls containing storage, services, and hidden doors. A single continuous ceiling plane and aligned floor joints unify the apartment while allowing each room its own character through material and light.",
-    gallery: galleryFrom(8, 5),
-    client: "Private Client",
-    area: "180 sq.m",
+    sections: [
+      {
+        title: "The City Artery",
+        body: "The proposed building needed to respond to its various contexts. As part of a sprawling hundred-acre educational campus, the structure occupied a significant position on a major road in Belagavi. It was essential for the building to establish itself as a visual landmark along this important city road.",
+      },
+      {
+        title: "The Campus",
+        body: "The new building would also serve as one of the frontages of the century-old campus. Due to the abundance of trees and the low-lying nature of the buildings, the campus appeared as a long perimeter wall from the city. This presented an opportunity to create an intervention that would enhance the campus's identity and make it recognizable.",
+      },
+      {
+        title: "Resolution",
+        body: "Despite its seemingly simple appearance, the new addition possesses multiple layers of complexity. It responds to the road as a linear screened box, serves as an entryway portal to the campus, and acts as a backdrop for the sports ground. The offices, with their blend of private chambers and open work desks, greatly benefit from exterior verandahs that shield interiors while allowing glimpses of the surrounding campus through layers of transparency.",
+      },
+    ],
+    client: "Educational Charity Institution",
+    area: "1,000 sq.m (addition)",
     status: "Built",
-    role: "Interior Architecture",
-    team: "ThirdSpace Architecture Studio",
-    awards: null,
+    role: "Architecture",
+    team: "Praveen Bavadekar, Namrata Betigiri",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
+    structural: "D.L. Kulkarni & Associates, Belagavi",
     details: [
-      { label: "Typology", value: "Residential interior" },
-      { label: "Focus", value: "Living, dining, study" },
-      { label: "Status", value: "Built" },
-      { label: "Area", value: "180 sq.m" },
-      { label: "Client", value: "Private" },
+      { label: "Typology", value: "Corporate office" },
+      { label: "Location", value: "Belagavi, Karnataka" },
+      { label: "Completion", value: "2019" },
+      { label: "Area", value: "~1,000 sq.m addition" },
+      { label: "Principals", value: "Praveen Bavadekar & Namrata Betigiri" },
     ],
   },
   {
-    id: "campus-library",
+    id: "two-solids-semi-void",
+    category: "Residential",
+    name: "Two Solids and A Semi Void",
+    location: "Belagavi, Karnataka",
+    year: "2021",
+    ...solids,
+    description:
+      "A five-bedroom house in Hindawadi that balances single-function rooms and versatile spaces — an architectural tribute to the neighbourhood's rich history.",
+    concept:
+      "Two Solids and a Semi Void stands as an architectural tribute to the rich history of Hindawadi, creating a unique space that resonates with the family legacy of its occupants and the community's spirit. The clients, deeply entrenched in Belagavi's rich textile economic fabric, envisioned a sanctuary that reflected their legacy while embracing modern living with minimalist accents. Core areas such as the kitchen, mandir, and bedrooms are positioned in accordance with Vastu Shastra at the far corners, while central living, dining, and recreational areas form the heart of the home.",
+    designHighlights: [
+      "The northeast entrance choreographs a sequence from a serene courtyard with a majestic mango tree through to lush rear gardens visible from the living room.",
+      "Private rooms are enclosed and cosy, contrasting with open, transparent living areas that blur the line between inner sanctum and outdoors.",
+      "The layout unfolds in three bands — eastern culinary and spiritual spaces, western bedrooms and staircase, and a fluid interstitial realm for communal life.",
+      "A material palette of wood, stone, printed tiles, and patterned wallpaper adds warmth to stark white floors and expansive glazed openings.",
+    ],
+    client: "Private Client",
+    area: "Private Residence",
+    status: "Built",
+    role: "Architecture",
+    team: "Thirdspace Architecture Studio",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
+    details: [
+      { label: "Typology", value: "Residential" },
+      { label: "Location", value: "Hindawadi, Belagavi" },
+      { label: "Program", value: "Five-bedroom house" },
+      { label: "Status", value: "Built" },
+      { label: "Principals", value: "Praveen Bavadekar & Namrata Betigiri" },
+    ],
+  },
+  {
+    id: "figured-ground",
     category: "Education",
-    name: "Campus Library & Commons",
+    name: "Figured Ground",
+    location: "Belagavi, Karnataka",
+    year: "2021",
+    ...figured,
+    description:
+      "The Indoor Sports Arena at KLE Technological University — a building that mediates between landscape withdrawal and urban civic presence.",
+    concept:
+      "Can a structure embody dual personas — seamlessly integrating into its surroundings while also commanding attention? The Indoor Sports Arena at KLE Technological University grapples with such philosophical inquiries, seeking to reconcile the paradoxes of architecture, landscape, and urban identity. Sited within one of the last remaining green tracts of a 100-acre campus, the building occupies a residual space that abuts a major six-lane arterial road — embodying the duality of urban intensity on one side and campus serenity on the other.",
+    designHighlights: [
+      "Large sports volumes are partially submerged, enabling landscape to flow over and around them while preserving visual porosity from the campus.",
+      "Central basketball and badminton courts transform into a convocation hall for 3,500, beneath a pyramidal steel roof with peripheral landscape roofscape.",
+      "Three plazas to the east, west, and north function as social condensers extending campus life to the building's threshold.",
+      "From the city, zinc cladding and glass form a taut angular envelope; a deep red soffit at the lifted corner creates an inviting interstitial space.",
+    ],
+    client: "KLE Technological University",
+    area: "Indoor sports arena",
+    status: "Built",
+    role: "Architecture",
+    team: "Thirdspace Architecture Studio",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
+    details: [
+      { label: "Typology", value: "Sports & convocation" },
+      { label: "Location", value: "KLE Technological University" },
+      { label: "Capacity", value: "1,300 spectators / 3,500 convocation" },
+      { label: "Status", value: "Built" },
+      { label: "Principals", value: "Praveen Bavadekar & Namrata Betigiri" },
+    ],
+  },
+  {
+    id: "kle-centenary-museum",
+    category: "Architecture",
+    name: "KLE Centenary Museum",
     location: "Belagavi, Karnataka",
     year: "2016",
-    image: HERO_IMAGES[6],
+    ...kle,
     description:
-      "A library and commons building that anchors the campus social life — generous volumes, filtered light, and layered study environments.",
-    overview:
-      "The library and commons building is the social heart of the campus — a place where reading, discussion, and informal learning overlap. A triple-height reading room faces north; smaller group study rooms and a café terrace wrap a shaded central court.",
-    challenge:
-      "Create a landmark building on modest budget using local labour and materials, while achieving the environmental performance expected of a 21st-century learning commons.",
-    approach:
-      "Brick cavity walls, precast concrete fins, and a folded metal roof create a durable envelope. Interior spaces are left raw and honest — exposed structure, polished concrete floors, and teak reading tables that students can repair and renew over time.",
-    gallery: galleryFrom(9, 5),
-    client: "Campus Development Authority",
-    area: "4,500 sq.m",
+      "A centenary museum repurposing an 80-year-old stone-and-timber structure — honouring the KLE Society's roots while inspiring future generations.",
+    concept:
+      "In 1916, seven young men returned to Belagavi with a shared dream of improving education in their hometown, establishing what would grow into the KLE Society — now over 250 institutions across Karnataka and Maharashtra. To mark a hundred years of growth, the KLE Centenary Museum was envisioned not just as a commemorative space but as a symbolic gesture toward the next century. The chosen site was an 80-year-old stone-and-timber structure that had served as principal's residence, nursery, and eventually storage — a quiet witness to the passage of time.",
+    designHighlights: [
+      "The heritage building was restored while new pavilions were introduced as outdoor galleries folding the natural and built environment into the narrative.",
+      "Visitors approach through the Pavilion of the Saptarishis — a clay-tile roofed walkway around a fig tree honouring founders and benefactors.",
+      "A curvilinear staircase wraps the central core, acting as both circulation and display, drawing visitors upward through layers of the Society's story.",
+      "Minimal interventions inside opened the plan into a continuous exhibition space with a new mezzanine and clerestory for light and ventilation.",
+    ],
+    client: "KLE Society",
+    area: "Heritage building + pavilions",
     status: "Built",
     role: "Architecture",
-    team: "ThirdSpace Architecture Studio",
-    awards: "Featured — Education Design Review, 2017",
+    team: "Thirdspace Architecture Studio",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
     details: [
-      { label: "Typology", value: "Library & commons" },
-      { label: "Focus", value: "Reading, collaboration" },
+      { label: "Typology", value: "Museum" },
+      { label: "Location", value: "KLE Campus, Belagavi" },
+      { label: "Completion", value: "2016" },
       { label: "Status", value: "Built" },
-      { label: "Area", value: "4,500 sq.m" },
-      { label: "Client", value: "Campus Authority" },
+      { label: "Client", value: "KLE Society" },
     ],
   },
   {
-    id: "public-plaza",
-    category: "Urbanism",
-    name: "Public Plaza & Forecourt",
-    location: "Karnataka, India",
-    year: "2015",
-    image: HERO_IMAGES[7],
+    id: "stacked-student-housing",
+    category: "Education",
+    name: "Stacked Student Housing",
+    location: "Belagavi, Karnataka",
+    year: "2020",
+    ...stacked,
     description:
-      "A civic forecourt connecting institutional buildings to the street — shade, seating, and a calibrated threshold between public and private.",
-    overview:
-      "The public plaza and forecourt stitches together three institutional buildings and the city street. Granite paving, native planting, and a rhythmic canopy structure define zones for gathering, circulation, and quiet pause.",
-    challenge:
-      "Design a civic space that functions during monsoon and peak summer alike — providing shade and drainage without the maintenance burden of a fully landscaped park.",
-    approach:
-      "We used a limited palette of durable materials and modular shade elements that can be replaced individually. The plaza slopes subtly toward planted bioswales, turning seasonal rain into a visible part of the spatial experience.",
-    gallery: galleryFrom(10, 5),
-    client: "Institutional Campus Trust",
-    area: "3,200 sq.m",
+      "Student housing on a 100 sq.m plot — a masterclass in spatial economy housing 29 residents within a bold terracotta monolith.",
+    concept:
+      "Situated on a modest 100 sqm plot in the heart of Belagavi, this student housing project is a masterclass in spatial economy and architectural ingenuity. Conceived as a complex layering of compact, self-contained units, the design prioritizes both density and dignity, maximizing every square inch without compromising on comfort or quality of life for its 29 student residents. Clad in deep terracotta red, the building's staggered roofline slices through the suburban skyline within a 15-meter statutory height limit.",
+    designHighlights: [
+      "A floor-to-floor height of 2,400mm enables efficient vertical stacking while two interlocked room typologies form a modular grid tailored for maximum utility.",
+      "Toilet partitions use 40mm kadappa stone slabs to save space; unplastered brick walls painted white expand visual scale and simplify upkeep.",
+      "A central staircase acts as a social spine connecting compact lobby, pantry, and sanitary facilities around shared semi-private zones.",
+      "Windows punctuate the facade in an irregular pattern, serving as light inlets and expressive elements within an otherwise unified sculptural mass.",
+    ],
+    client: "Private Developer",
+    area: "100 sq.m plot",
     status: "Built",
-    role: "Landscape & Urban Design",
-    team: "ThirdSpace Architecture Studio",
-    awards: null,
+    role: "Architecture",
+    team: "Thirdspace Architecture Studio",
+    principals: "Praveen Bavadekar & Namrata Betigiri",
     details: [
-      { label: "Typology", value: "Civic plaza" },
-      { label: "Focus", value: "Public realm, shade" },
+      { label: "Typology", value: "Student housing" },
+      { label: "Location", value: "Belagavi, Karnataka" },
+      { label: "Residents", value: "29 students" },
+      { label: "Plot", value: "100 sq.m" },
       { label: "Status", value: "Built" },
-      { label: "Area", value: "3,200 sq.m" },
-      { label: "Client", value: "Campus Trust" },
+    ],
+  },
+  {
+    id: "house-of-skylights",
+    category: "Residential",
+    name: "The House of Skylights",
+    location: "Pune, Maharashtra",
+    year: "2019",
+    ...skylights,
+    description:
+      "A three-generation family home in Pune organised around a central raintree — rich in spatial experience with a modest material palette.",
+    concept:
+      "The House of Skylights is home to a family of three generations. The site featured a large raintree at its centre and a gradual slope toward a seasonal rivulet to the north. Planning divided the structure centrally along an axis of the existing tree, a deepmaal, and a saraswati-yantra — with public areas on the ground floor, family bedrooms on the first, and music and entertainment spaces above. The client named the house 'Khyal' — a Hindustani classical music term for a composition that offers vast scope for improvisation within a restrained framework.",
+    designHighlights: [
+      "The central raintree divides the plan into two masses, creating a focal axis connecting nature, light, and ritual across all levels.",
+      "Strategically placed skylights flood the first floor and landscaped areas with natural light, making spaces feel larger than their footprint.",
+      "Berge-Ply cladding with metal jali on the first floor provides heat insulation, cross-ventilation, and dynamic shadow patterns throughout the year.",
+      "Solar panels and rainwater harvesting cater to outdoor zones, integrating sustainability into the daily life of the home.",
+    ],
+    client: "Private Client",
+    area: "Multi-storey residence",
+    status: "Built",
+    role: "Architecture (in collaboration)",
+    team: "Niraj Doshi Design Consultancy in collaboration with Thirdspace Architecture Studio",
+    principals: "Ar. Niraj Doshi & Ar. Praveen Bavadekar",
+    collaboration: "Niraj Doshi Design Consultancy [N.D.D.C.]",
+    details: [
+      { label: "Typology", value: "Residential" },
+      { label: "Location", value: "Pune, Maharashtra" },
+      { label: "Name", value: "Khyal" },
+      { label: "Status", value: "Built" },
+      { label: "Collaboration", value: "N.D.D.C. & Thirdspace" },
     ],
   },
 ];
 
 export const WORK_CATEGORIES = [
   "All",
-  "Education",
   "Architecture",
-  "Interiors",
-  "Urbanism",
+  "Education",
+  "Residential",
 ];
 
 export const FEATURED_PROJECT_IDS = [
-  "technology-institute",
-  "student-hostel",
-  "school-campus",
-  "institutional-hq",
-  "urban-intervention",
+  "pool-pavilion",
+  "formist-treehouse",
+  "hover-space",
+  "figured-ground",
+  "kle-centenary-museum",
 ];
 
 export const PRACTICE_CATEGORY_LINKS = {
   Educational: "Education",
   Architecture: "Architecture",
-  Interiors: "Interiors",
-  Urbanism: "Urbanism",
+  Interiors: "Architecture",
+  Urbanism: "Architecture",
 };
 
 export const GALLERY_DOMAIN_LINKS = {
   education: "Education",
   architecture: "Architecture",
-  interiors: "Interiors",
-  urbanism: "Urbanism",
-  research: "Urbanism",
+  interiors: "Residential",
+  urbanism: "Architecture",
+  research: "Architecture",
 };
 
 export function getProjectById(id) {
@@ -317,4 +346,8 @@ export function getRelatedProjects(id, limit = 3) {
     0,
     limit
   );
+}
+
+export function getAllProjectImages(project) {
+  return project.allImages ?? project.slideshow ?? [project.image];
 }

@@ -7,7 +7,7 @@ import SectionEyebrow from "../components/layout/SectionEyebrow";
 import PillButton from "../components/PillButton";
 import MarqueeStrip from "../components/MarqueeStrip";
 import { CAPABILITIES } from "../constants/capabilities";
-import { HERO_IMAGES } from "../constants/heroImages";
+import { PAGE_HERO_IMAGES } from "../constants/heroImages";
 
 export default function CapabilitiesPage() {
   const [active, setActive] = useState(0);
@@ -19,7 +19,7 @@ export default function CapabilitiesPage() {
         eyebrow="Services"
         title="Capabilities"
         subtitle="Architecture, interiors, urbanism, education, and research — a multi-scale practice grounded in Indian urban realities."
-        image={HERO_IMAGES[5]}
+        image={PAGE_HERO_IMAGES.capabilities}
       />
 
       {/* Interactive capability selector */}

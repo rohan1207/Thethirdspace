@@ -1,54 +1,91 @@
-/** Hero slideshow images — served from Vite public/ root (slide1–slide12) */
-export const HERO_IMAGES = [
-  "/slide1.webp",
-  "/slide2.jpg",
-  "/slide3.jpeg",
-  "/slide4.jpg",
-  "/slide5.webp",
-  "/slide6.jpg",
-  "/slide7.jpg",
-  "/slide8.jpg",
-  "/slide9.jpg",
-  "/slide10.jpg",
-  "/slide11.gif",
-  "/slide12.jpg",
+import { PROJECT_GALLERY_FILES } from "./projectAssets";
+
+export const PROJECT_FOLDERS = [
+  "pavilion-pool",
+  "formist-treehouse",
+  "hover-space",
+  "solid-semi-void",
+  "figured-ground",
+  "kle-centenary",
+  "stacked-student",
+  "skylights",
 ];
 
-/** First N slides shown immediately on hero mount */
+export function projectImage(folder, file = "main.webp") {
+  return `/${folder}/${file}`;
+}
+
+export function projectGalleryPick(folder, index = 0) {
+  const files = PROJECT_GALLERY_FILES[folder];
+  if (!files?.length) return projectImage(folder);
+  return projectImage(folder, files[Math.min(index, files.length - 1)]);
+}
+
+/** All project hero images */
+export const PROJECT_MAIN_IMAGES = PROJECT_FOLDERS.map((folder) => projectImage(folder));
+
+/** Extra gallery picks when more hero variety is needed */
+export const HERO_GALLERY_EXTRAS = PROJECT_FOLDERS.map((folder, i) =>
+  projectGalleryPick(folder, i % 2)
+);
+
+/** Homepage hero slideshow — mains first, then gallery picks */
+export const HERO_IMAGES = [...PROJECT_MAIN_IMAGES, ...HERO_GALLERY_EXTRAS];
+
 export const HERO_PRIORITY_COUNT = 6;
-
 export const HERO_PRIORITY_IMAGES = HERO_IMAGES.slice(0, HERO_PRIORITY_COUNT);
-
 export const HERO_BACKGROUND_IMAGES = HERO_IMAGES.slice(HERO_PRIORITY_COUNT);
 
-/** Curated hero-slide picks for homepage sections — indices into HERO_IMAGES only */
-export const PRACTICE_CATEGORY_IMAGES = {
-  educational: HERO_IMAGES[11],
-  architecture: HERO_IMAGES[0],
-  interiors: HERO_IMAGES[2],
-  urbanism: HERO_IMAGES[8],
+/** Inner page heroes and section images */
+export const PAGE_HERO_IMAGES = {
+  work: projectImage("hover-space"),
+  about: projectImage("figured-ground"),
+  aboutStory: projectGalleryPick("kle-centenary", 1),
+  aboutStudios: projectImage("stacked-student"),
+  contact: projectImage("pavilion-pool"),
+  contactSide: projectImage("formist-treehouse"),
+  capabilities: projectImage("solid-semi-void"),
+  insights: projectGalleryPick("figured-ground", 3),
 };
 
-export const FEATURED_PROJECT_IMAGES = [
-  HERO_IMAGES[0],
-  HERO_IMAGES[8],
-  HERO_IMAGES[3],
-  HERO_IMAGES[11],
-  HERO_IMAGES[9],
-];
+export const PRACTICE_CATEGORY_IMAGES = {
+  educational: projectImage("figured-ground"),
+  architecture: projectImage("hover-space"),
+  interiors: projectImage("pavilion-pool"),
+  urbanism: projectImage("formist-treehouse"),
+};
+
+export const FEATURED_PROJECT_IMAGES = PROJECT_MAIN_IMAGES.slice(0, 5);
 
 export const GALLERY_DOMAIN_IMAGES = {
-  education: HERO_IMAGES[11],
-  architecture: HERO_IMAGES[1],
-  interiors: HERO_IMAGES[5],
-  urbanism: HERO_IMAGES[7],
-  research: HERO_IMAGES[10],
+  education: projectImage("stacked-student"),
+  architecture: projectImage("hover-space"),
+  interiors: projectImage("pavilion-pool"),
+  urbanism: projectImage("formist-treehouse"),
+  research: projectImage("solid-semi-void"),
 };
 
 export const TERRITORY_SERVICE_IMAGES = [
-  HERO_IMAGES[0],
-  HERO_IMAGES[5],
-  HERO_IMAGES[6],
-  HERO_IMAGES[11],
-  HERO_IMAGES[9],
+  projectImage("hover-space"),
+  projectImage("pavilion-pool"),
+  projectImage("formist-treehouse"),
+  projectImage("figured-ground"),
+  projectImage("kle-centenary"),
 ];
+
+export const NARRATIVE_SCROLL_IMAGES = [
+  projectImage("pavilion-pool"),
+  projectImage("formist-treehouse"),
+  projectImage("hover-space"),
+  projectImage("solid-semi-void"),
+  projectImage("figured-ground"),
+];
+
+export const INSIGHT_IMAGES = {
+  featured: projectImage("hover-space"),
+  education: projectImage("stacked-student"),
+  studio: projectImage("formist-treehouse"),
+  material: projectGalleryPick("solid-semi-void", 2),
+  urbanism: projectGalleryPick("formist-treehouse", 4),
+  research: projectGalleryPick("kle-centenary", 0),
+};

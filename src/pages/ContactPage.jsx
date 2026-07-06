@@ -6,7 +6,7 @@ import Reveal from "../components/layout/Reveal";
 import SectionEyebrow from "../components/layout/SectionEyebrow";
 import PillButton from "../components/PillButton";
 import { FIRM_HQ, FIRM_STUDIOS } from "../constants/firm";
-import { HERO_IMAGES } from "../constants/heroImages";
+import { PAGE_HERO_IMAGES } from "../constants/heroImages";
 
 const CONTACT_CHANNELS = [
   {
@@ -51,7 +51,7 @@ export default function ContactPage() {
         eyebrow="Connect"
         title="Contact"
         subtitle="We welcome conversations about educational campuses, institutional buildings, interiors, and urban studies."
-        image={HERO_IMAGES[4]}
+        image={PAGE_HERO_IMAGES.contact}
         align="left"
       />
 
@@ -184,7 +184,7 @@ export default function ContactPage() {
 
               <div className="relative mt-12 aspect-[4/3] overflow-hidden bg-neutral-100">
                 <img
-                  src={HERO_IMAGES[1]}
+                  src={PAGE_HERO_IMAGES.contactSide}
                   alt=""
                   className="h-full w-full object-cover"
                   loading="lazy"

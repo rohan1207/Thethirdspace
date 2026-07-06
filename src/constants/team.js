@@ -1,4 +1,4 @@
-import { HERO_IMAGES } from "./heroImages";
+export const TEAM_PLACEHOLDER = "/team-members/unknown.avif";
 
 export const LEADERSHIP = [
   {
@@ -27,34 +27,34 @@ export const TEAM_MEMBERS = [
     name: "Vaishnavi Parulekar",
     role: "Architect",
     studio: "Belagavi",
-    image: HERO_IMAGES[3],
+    image: "/team-members/vaishnavi.jpeg",
   },
   {
     id: "team-shridhar",
     name: "Shridhar Shenoy",
     role: "Architect",
     studio: "Belagavi",
-    image: HERO_IMAGES[4],
+    image: TEAM_PLACEHOLDER,
   },
   {
     id: "team-shiva",
     name: "Shiva Bhosale",
     role: "Architect",
     studio: "Pune",
-    image: HERO_IMAGES[7],
+    image: "/team-members/shiva.jpeg",
   },
   {
     id: "team-pradeep",
     name: "Pradeep Rajappa",
     role: "Architect",
     studio: "Belagavi",
-    image: HERO_IMAGES[9],
+    image: "/team-members/pradeep.jpeg",
   },
   {
     id: "team-sakshi",
     name: "Sakshi Didale",
     role: "HR & Administration Manager",
     studio: "Belagavi",
-    image: HERO_IMAGES[10],
+    image: "/team-members/sakshi.jpeg",
   },
 ];

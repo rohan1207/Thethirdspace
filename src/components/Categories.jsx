@@ -8,8 +8,8 @@ import { getWorkCategoryPath } from "../constants/projects";
 const collections = [
   { name: "Educational", image: PRACTICE_CATEGORY_IMAGES.educational, category: "Education" },
   { name: "Architecture", image: PRACTICE_CATEGORY_IMAGES.architecture, category: "Architecture" },
-  { name: "Interiors", image: PRACTICE_CATEGORY_IMAGES.interiors, category: "Interiors" },
-  { name: "Urbanism", image: PRACTICE_CATEGORY_IMAGES.urbanism, category: "Urbanism" },
+  { name: "Interiors", image: PRACTICE_CATEGORY_IMAGES.interiors, category: "Residential" },
+  { name: "Urbanism", image: PRACTICE_CATEGORY_IMAGES.urbanism, category: "Architecture" },
 ];
 
 const FLOATING_OBJECTS = [

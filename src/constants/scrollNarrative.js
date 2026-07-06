@@ -1,4 +1,4 @@
-import { HERO_IMAGES } from "./heroImages";
+import { NARRATIVE_SCROLL_IMAGES } from "./heroImages";
 
 /**
  * Three headline lines — one word swaps per scroll step.
@@ -28,13 +28,7 @@ export const NARRATIVE_LINES = [
   },
 ];
 
-export const NARRATIVE_IMAGES = [
-  HERO_IMAGES[0],
-  HERO_IMAGES[3],
-  HERO_IMAGES[5],
-  HERO_IMAGES[8],
-  HERO_IMAGES[11],
-];
+export const NARRATIVE_IMAGES = NARRATIVE_SCROLL_IMAGES;
 
 /** Total scroll length multiplier (× viewport height) */
 export const NARRATIVE_SCROLL_VH = {

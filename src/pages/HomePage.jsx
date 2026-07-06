@@ -12,11 +12,13 @@ import Gallery from "../components/Gallery";
 import MarqueeStrip from "../components/MarqueeStrip";
 import { HERO_IMAGES } from "../constants/heroImages";
 import { NARRATIVE_IMAGES } from "../constants/scrollNarrative";
+import { WORK_PROJECTS } from "../constants/projects";
 import { preloadImagesInBackground } from "../utils/preloadImages";
 
 export default function HomePage() {
   useEffect(() => {
-    preloadImagesInBackground([...HERO_IMAGES, ...NARRATIVE_IMAGES]);
+    const projectCovers = WORK_PROJECTS.map((project) => project.image);
+    preloadImagesInBackground([...HERO_IMAGES, ...NARRATIVE_IMAGES, ...projectCovers]);
   }, []);
 
   return (

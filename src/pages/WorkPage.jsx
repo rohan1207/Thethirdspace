@@ -8,7 +8,7 @@ import SectionEyebrow from "../components/layout/SectionEyebrow";
 import PillButton from "../components/PillButton";
 import MarqueeStrip from "../components/MarqueeStrip";
 import { WORK_PROJECTS, WORK_CATEGORIES, getProjectPath } from "../constants/projects";
-import { HERO_IMAGES } from "../constants/heroImages";
+import { PAGE_HERO_IMAGES } from "../constants/heroImages";
 
 export default function WorkPage() {
   const [searchParams] = useSearchParams();
@@ -34,7 +34,7 @@ export default function WorkPage() {
         eyebrow="Portfolio"
         title="Selected Work"
         subtitle="Built and unbuilt projects across education, architecture, interiors, and urbanism — spanning two decades of practice in India."
-        image={HERO_IMAGES[0]}
+        image={PAGE_HERO_IMAGES.work}
       />
 
       <section className="border-t border-black/10 bg-white px-5 py-14 sm:px-8 md:px-12 md:py-20 lg:px-14">

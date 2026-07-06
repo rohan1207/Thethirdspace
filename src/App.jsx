@@ -6,6 +6,7 @@ import WorkPage from "./pages/WorkPage";
 import AboutPage from "./pages/AboutPage";
 import CapabilitiesPage from "./pages/CapabilitiesPage";
 import InsightsPage from "./pages/InsightsPage";
+import InsightArticlePage from "./pages/InsightArticlePage";
 import ContactPage from "./pages/ContactPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/capabilities" element={<CapabilitiesPage />} />
         <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/insights/:articleId" element={<InsightArticlePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

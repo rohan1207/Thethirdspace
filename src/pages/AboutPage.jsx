@@ -23,7 +23,7 @@ import {
 } from "../constants/firm";
 import { STUDIO_VALUES } from "../constants/capabilities";
 import { LEADERSHIP, TEAM_MEMBERS } from "../constants/team";
-import { HERO_IMAGES } from "../constants/heroImages";
+import { PAGE_HERO_IMAGES } from "../constants/heroImages";
 
 const MILESTONES = [
   { year: "2002", label: "ThirdSpace founded in Belagavi" },
@@ -63,7 +63,7 @@ export default function AboutPage() {
         eyebrow="Studio"
         title="The Practice"
         subtitle={FIRM_TAGLINE}
-        image={HERO_IMAGES[2]}
+        image={PAGE_HERO_IMAGES.about}
       />
 
       {/* Story */}
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 style={{ y: imageY }}
               >
                 <motion.img
-                  src={HERO_IMAGES[6]}
+                  src={PAGE_HERO_IMAGES.aboutStory}
                   alt="ThirdSpace studio and built work"
                   className="h-full w-full object-cover"
                   loading="lazy"
@@ -321,7 +321,7 @@ export default function AboutPage() {
             <Reveal delay={1}>
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200 lg:aspect-[5/4]">
                 <motion.img
-                  src={HERO_IMAGES[8]}
+                  src={PAGE_HERO_IMAGES.aboutStudios}
                   alt="ThirdSpace studio work"
                   className="h-full w-full object-cover"
                   initial={{ scale: 1.08 }}

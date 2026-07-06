@@ -5,8 +5,10 @@ import Reveal from "../components/layout/Reveal";
 import SectionEyebrow from "../components/layout/SectionEyebrow";
 import PillButton from "../components/PillButton";
 import ProjectImageSlideshow from "../components/ProjectImageSlideshow";
+import ProjectGallery from "../components/ProjectGallery";
 import {
   getAdjacentProjects,
+  getAllProjectImages,
   getProjectById,
   getProjectPath,
   getRelatedProjects,
@@ -17,16 +19,17 @@ export default function ProjectDetailPage() {
   const project = getProjectById(projectId);
   const { prev, next } = getAdjacentProjects(projectId);
   const related = getRelatedProjects(projectId, 3);
+  const slideshowImages = project?.slideshow ?? (project ? [project.image] : []);
+  const galleryImages = project?.gallery ?? [];
 
   if (!project) {
     return <Navigate to="/work" replace />;
   }
 
-  const narrative = [
-    { title: "Overview", body: project.overview },
-    { title: "Challenge", body: project.challenge },
-    { title: "Approach", body: project.approach },
-  ].filter((block) => block.body);
+  const sections = [
+    project.concept ? { title: "Concept", body: project.concept } : null,
+    ...(project.sections ?? []),
+  ].filter(Boolean);
 
   return (
     <PageLayout>
@@ -60,14 +63,14 @@ export default function ProjectDetailPage() {
 
       <section className="bg-white px-5 py-10 sm:px-8 md:px-12 md:py-14 lg:px-14">
         <div className="mx-auto max-w-[1600px]">
-          <ProjectImageSlideshow images={project.gallery} alt={project.name} />
+          <ProjectImageSlideshow images={slideshowImages} alt={project.name} />
         </div>
       </section>
 
       <section className="border-t border-black/10 bg-white px-5 py-14 sm:px-8 md:px-12 md:py-20 lg:px-14">
         <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(280px,34%)] lg:gap-20">
           <div>
-            {narrative.map((block, i) => (
+            {sections.map((block, i) => (
               <Reveal key={block.title} delay={i}>
                 <h2 className="mb-4 text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium tracking-[-0.03em] text-[#0a0a0a]">
                   {block.title}
@@ -78,14 +81,22 @@ export default function ProjectDetailPage() {
               </Reveal>
             ))}
 
-            {project.awards && (
+            {project.designHighlights?.length > 0 && (
               <Reveal>
-                <div className="rounded-sm border border-black/10 bg-[#f9f8f6] px-5 py-4 md:px-6 md:py-5">
-                  <p className="mb-1 text-[9px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
-                    Recognition
-                  </p>
-                  <p className="text-sm leading-relaxed text-[#0a0a0a]">{project.awards}</p>
-                </div>
+                <h2 className="mb-5 text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium tracking-[-0.03em] text-[#0a0a0a]">
+                  Design Highlights
+                </h2>
+                <ul className="mb-10 max-w-3xl space-y-4 md:mb-12">
+                  {project.designHighlights.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-base leading-[1.75] text-neutral-600"
+                    >
+                      <span className="mt-2.5 h-px w-5 shrink-0 bg-[#0a0a0a]" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
             )}
           </div>
@@ -118,6 +129,14 @@ export default function ProjectDetailPage() {
                     <dd className="text-sm leading-snug text-[#0a0a0a]">{project.team}</dd>
                   </div>
                 )}
+                {project.collaboration && (
+                  <div className="grid grid-cols-[minmax(0,38%)_1fr] gap-4">
+                    <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-400">
+                      Collaboration
+                    </dt>
+                    <dd className="text-sm leading-snug text-[#0a0a0a]">{project.collaboration}</dd>
+                  </div>
+                )}
               </dl>
               <div className="mt-8">
                 <PillButton to="/contact">Discuss A Similar Project</PillButton>
@@ -127,13 +146,30 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
+      {galleryImages.length > 0 && (
+        <section className="border-t border-black/10 bg-[#f5f5f3] px-5 py-14 sm:px-8 md:px-12 md:py-20 lg:px-14">
+          <div className="mx-auto max-w-[1600px]">
+            <Reveal className="mb-8 md:mb-10">
+              <SectionEyebrow className="mb-4">Gallery</SectionEyebrow>
+              <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-medium tracking-[-0.03em] text-[#0a0a0a]">
+                Project Gallery
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
+                Tap any image to view full size.
+              </p>
+            </Reveal>
+            <ProjectGallery images={getAllProjectImages(project)} alt={project.name} />
+          </div>
+        </section>
+      )}
+
       {(prev || next) && (
-        <section className="border-t border-black/10 bg-[#f5f5f3] px-5 py-10 sm:px-8 md:px-12 md:py-12 lg:px-14">
+        <section className="border-t border-black/10 bg-white px-5 py-10 sm:px-8 md:px-12 md:py-12 lg:px-14">
           <div className="mx-auto flex max-w-[1600px] flex-col gap-4 sm:flex-row sm:justify-between">
             {prev ? (
               <Link
                 to={getProjectPath(prev.id)}
-                className="group flex max-w-md flex-col gap-1 rounded-sm border border-black/10 bg-white px-5 py-4 transition hover:border-black/25"
+                className="group flex max-w-md flex-col gap-1 rounded-sm border border-black/10 bg-[#f5f5f3] px-5 py-4 transition hover:border-black/25"
               >
                 <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
                   Previous
@@ -148,7 +184,7 @@ export default function ProjectDetailPage() {
             {next ? (
               <Link
                 to={getProjectPath(next.id)}
-                className="group flex max-w-md flex-col gap-1 rounded-sm border border-black/10 bg-white px-5 py-4 text-left transition hover:border-black/25 sm:text-right"
+                className="group flex max-w-md flex-col gap-1 rounded-sm border border-black/10 bg-[#f5f5f3] px-5 py-4 text-left transition hover:border-black/25 sm:text-right"
               >
                 <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
                   Next

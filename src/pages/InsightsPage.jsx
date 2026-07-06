@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import PageLayout from "../components/layout/PageLayout";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";import PageLayout from "../components/layout/PageLayout";
 import PageHero from "../components/layout/PageHero";
 import Reveal, { RevealStagger, revealItem } from "../components/layout/Reveal";
 import SectionEyebrow from "../components/layout/SectionEyebrow";
 import PillButton from "../components/PillButton";
 import MarqueeStrip from "../components/MarqueeStrip";
-import { INSIGHTS } from "../constants/insights";
-import { HERO_IMAGES } from "../constants/heroImages";
+import { INSIGHTS, getInsightPath } from "../constants/insights";import { PAGE_HERO_IMAGES } from "../constants/heroImages";
 
 const CATEGORIES = ["All", "Essay", "Project Note", "Studio", "Research", "Urbanism"];
 
@@ -27,7 +26,7 @@ export default function InsightsPage() {
         eyebrow="Journal"
         title="Insights"
         subtitle="Essays, project notes, and research from the studio — on architecture, education, urbanism, and the practice of design in India."
-        image={HERO_IMAGES[10]}
+        image={PAGE_HERO_IMAGES.insights}
       />
 
       {/* Featured article */}
@@ -38,7 +37,10 @@ export default function InsightsPage() {
           </Reveal>
 
           <Reveal delay={1}>
-            <article className="group grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-14">
+            <Link
+              to={getInsightPath(featured.id)}
+              className="group grid grid-cols-1 gap-8 no-underline lg:grid-cols-2 lg:gap-14"
+            >
               <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100 lg:aspect-auto lg:min-h-[420px]">
                 <motion.img
                   src={featured.image}
@@ -62,13 +64,17 @@ export default function InsightsPage() {
                 <p className="mb-8 max-w-lg text-base leading-relaxed text-neutral-600">
                   {featured.excerpt}
                 </p>
-                <PillButton arrow="→" showArrow>
-                  Read Article
-                </PillButton>
+                <span className="pill-btn inline-flex items-center gap-[0.35em] rounded-full border bg-transparent px-5 py-[0.55em] transition-all duration-300">
+                  <span className="pill-btn-text text-[clamp(10px,0.82vw,13px)] font-semibold uppercase tracking-[0.16em]">
+                    →
+                  </span>
+                  <span className="pill-btn-text text-[clamp(10px,0.82vw,13px)] font-semibold uppercase tracking-[0.16em]">
+                    Read Article
+                  </span>
+                </span>
               </div>
-            </article>
-          </Reveal>
-        </div>
+            </Link>
+          </Reveal>        </div>
       </section>
 
       {/* Article grid */}
@@ -99,41 +105,41 @@ export default function InsightsPage() {
             </div>
           </Reveal>
 
-          <RevealStagger className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-10">
+          <RevealStagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {filtered.map((article) => (
-              <motion.article
-                key={article.id}
-                variants={revealItem}
-                className="group cursor-pointer"
-              >
-                <div className="relative mb-3 aspect-[4/3] overflow-hidden bg-neutral-200 md:mb-5 md:aspect-[16/10]">
-                  <motion.img
-                    src={article.image}
-                    alt=""
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </div>
-                <div className="flex flex-wrap items-center gap-1.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-neutral-400 md:gap-2 md:text-[10px] md:tracking-[0.2em]">
-                  <span>{article.category}</span>
-                  <span className="hidden sm:inline">·</span>
-                  <span className="hidden sm:inline">{article.date}</span>
-                </div>
-                <h3 className="mt-1.5 text-sm font-medium leading-snug tracking-[-0.02em] text-[#0a0a0a] transition-opacity duration-300 group-hover:opacity-60 md:mt-2 md:text-xl">
-                  {article.title}
-                </h3>
-                <p className="mt-1.5 hidden line-clamp-2 text-sm leading-relaxed text-neutral-500 md:mt-2 md:block">
-                  {article.excerpt}
-                </p>
-                <span className="mt-2 hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0a0a0a] opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:mt-4 md:inline-block">
-                  Read →
-                </span>
+              <motion.article key={article.id} variants={revealItem}>
+                <Link
+                  to={getInsightPath(article.id)}
+                  className="group block no-underline"
+                >
+                  <div className="relative mb-3 aspect-[16/10] overflow-hidden bg-neutral-200 md:mb-5">
+                    <motion.img
+                      src={article.image}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-neutral-400 md:gap-2 md:text-[10px] md:tracking-[0.2em]">
+                    <span>{article.category}</span>
+                    <span>·</span>
+                    <span>{article.date}</span>
+                  </div>
+                  <h3 className="mt-1.5 text-base font-medium leading-snug tracking-[-0.02em] text-[#0a0a0a] transition-opacity duration-300 group-hover:opacity-60 md:mt-2 md:text-xl">
+                    {article.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-500">
+                    {article.excerpt}
+                  </p>
+                  <span className="mt-3 inline-block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0a0a0a] opacity-70 transition-opacity duration-300 group-hover:opacity-100 md:mt-4">
+                    Read →
+                  </span>
+                </Link>
               </motion.article>
             ))}
-          </RevealStagger>
-        </div>
+          </RevealStagger>        </div>
       </section>
 
       {/* Newsletter */}
