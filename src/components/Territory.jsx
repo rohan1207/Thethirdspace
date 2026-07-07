@@ -194,7 +194,7 @@ export default function Territory() {
             width: 100%;
             height: auto;
             min-height: 0;
-            overflow: hidden;
+            overflow-y: auto;
           }
           .svc-mobile-left {
             justify-content: flex-start !important;
@@ -238,11 +238,10 @@ export default function Territory() {
             height: auto !important;
             min-height: 100vh !important;
             max-height: 100vh;
-            overflow: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overscroll-behavior: contain;
           }
         }
         .svc-word.active {
