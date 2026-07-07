@@ -13,6 +13,9 @@ import {
 } from "../constants/scrollNarrative";
 
 gsap.registerPlugin(ScrollTrigger);
+// Mobile browsers resize the viewport as the URL bar shows/hides, which can
+// cause pin jitter if ScrollTrigger refreshes mid-scroll.
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const IMAGE_COUNT = NARRATIVE_IMAGES.length;
 
@@ -142,6 +145,7 @@ export default function ScrollNarrative() {
             start: "top top",
             end: `+=${scrollVh * 100}%`,
             pin,
+            pinType: ScrollTrigger.isTouch ? "transform" : "fixed",
             scrub: 0.9,
             anticipatePin: 1,
             invalidateOnRefresh: true,

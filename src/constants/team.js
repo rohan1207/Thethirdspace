@@ -23,6 +23,13 @@ export const LEADERSHIP = [
 
 export const TEAM_MEMBERS = [
   {
+    id: "team-sakshi",
+    name: "Sakshi Didale",
+    role: "HR & Administration Manager",
+    studio: "Belagavi",
+    image: "/team-members/sakshi.jpeg",
+  },
+  {
     id: "team-vaishnavi",
     name: "Vaishnavi Parulekar",
     role: "Architect",
@@ -49,12 +56,5 @@ export const TEAM_MEMBERS = [
     role: "Architect",
     studio: "Belagavi",
     image: "/team-members/pradeep.jpeg",
-  },
-  {
-    id: "team-sakshi",
-    name: "Sakshi Didale",
-    role: "HR & Administration Manager",
-    studio: "Belagavi",
-    image: "/team-members/sakshi.jpeg",
   },
 ];

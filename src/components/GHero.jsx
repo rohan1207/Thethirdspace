@@ -30,6 +30,8 @@ function applyHardScrollLock(scrollY) {
   document.documentElement.style.overflow = "hidden";
   document.documentElement.style.overscrollBehavior = "none";
   document.body.style.overflow = "hidden";
+  // Prevent touch panning jitter during fixed-body lock on mobile browsers.
+  document.body.style.touchAction = "none";
   document.body.style.paddingRight = sb > 0 ? `${sb}px` : "";
   document.body.style.position = "fixed";
   document.body.style.top = `-${y}px`;
@@ -46,6 +48,7 @@ function releaseHardScrollLock() {
   document.documentElement.style.overflow = "";
   document.documentElement.style.overscrollBehavior = "";
   document.body.style.overflow = "";
+  document.body.style.touchAction = "";
   document.body.style.paddingRight = "";
   document.body.style.position = "";
   document.body.style.top = "";
