@@ -208,7 +208,7 @@ export default function Footer() {
             </p>
             <p className="text-[clamp(9px,0.75vw,11px)] font-normal tracking-[0.12em] text-[#0a0a0a]/70">
               Designed and developed by{" "}
-              <span className="font-semibold text-[#0a0a0a]">Rohan&amp;co</span>
+              <span className="font-semibold text-[#0a0a0a]">TheSocialKollab</span>
             </p>
           </div>
           <PillButton onClick={scrollToTop} arrow="↑" className="w-fit shrink-0">
