@@ -188,7 +188,7 @@ export default function Footer() {
             </p>
             <p className="text-center text-[9px] font-normal tracking-[0.1em] text-[#0a0a0a]/65">
               Designed and developed by{" "}
-              <span className="font-semibold text-[#0a0a0a]">Rohan&amp;co</span>
+              <span className="font-semibold text-[#0a0a0a]">TSK</span>
             </p>
           </div>
         </div>
